@@ -11,7 +11,7 @@ Let's create an election where people with the Estonian id numbers `47101010033`
     go run reg-server.go ../SECRET.pem # leave it running and let the people register
     
     go run prepare.go ../SECRET.pem 24h "my election"
-    # the time limit is approximate, overestimating doesn't hurt
+    # the time limit for election duration is approximate, overestimating doesn't hurt
     # the preparation includes bulk RSA signing and will take a while
 
     go run vote-server.go ../SECRET.pem # and wait for people to vote

@@ -5,7 +5,7 @@ Let's create an election where people with the Estonian id numbers `47101010033`
     mkdir -p ../myelection
     cp -t ../myelection *.go *.py
     cd ../myelection
-    echo 01010033 36603150241 | python2 eligiblevoters.py # downloads id card public keys from sk.ee
+    echo 47101010033 36603150241 | python2 eligiblevoters.py # downloads id card public keys from sk.ee
 
     # look below for instructions on how to generate a certificate
     go run reg-server.go ../SECRET.pem # leave it running and let the people register

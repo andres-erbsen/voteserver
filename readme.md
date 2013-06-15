@@ -106,13 +106,13 @@ client->server | Registration request (No header at all)
 
 `%{gid}.cargos`, `GROUPCGS` | Cargos of members of group with id `gid` |
 -------------|-----
-`uin64` | voter id of the owner of the cargo
-`uin16` | `size` - size of the cargo
+`uint64` | voter id of the owner of the cargo
+`uint16` | `size` - size of the cargo
 `[size]byte` | the cargo
 ... | ... (same for next voter)
 
 
 `%{y_tilde}x.cargos`, `VOTEVOTE` | A vote (the header is not transmitted, but is signed) |
 -------------|-----
-`uin16` | `size` - size of the vote (message)
+`uint16` | `size` - size of the vote (message)
 `[size]byte` | the vote

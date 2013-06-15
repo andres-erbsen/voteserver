@@ -20,9 +20,9 @@ import (
 )
 
 const (
-	EL_TAG_SIZE = 8 + 8 + 16
+	EL_TAG_SIZE    = 8 + 8 + 16
 	MAX_GROUP_SIZE = 1000
-	LSAGS_PK_SIZE = 29
+	LSAGS_PK_SIZE  = 29
 )
 
 var server_sk *rsa.PrivateKey

@@ -46,7 +46,7 @@ func groupVoteHandler(group string) func(http.ResponseWriter, *http.Request) {
 		if r.Method != "POST" {
 			return
 		}
-		r.Body = http.MaxBytesReader(w, r.Body, 256 + (MAX_GROUP_SIZE+2)*(LSAGS_PK_SIZE))
+		r.Body = http.MaxBytesReader(w, r.Body, 256+(MAX_GROUP_SIZE+2)*(LSAGS_PK_SIZE))
 		postdata, err := ioutil.ReadAll(r.Body)
 		if err != nil {
 			return

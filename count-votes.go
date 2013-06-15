@@ -65,7 +65,7 @@ func main() {
 		err = cert.CheckSignature(x509.SHA1WithRSA, pk, sig)
 		if err == nil {
 			var pk_ [LSAGS_PK_SIZE]byte
-			copy(pk_[:], pk[:LSAGS_PK_SIZE]) 
+			copy(pk_[:], pk[:LSAGS_PK_SIZE])
 			valid_pks[pk_] = true
 		} else {
 			fmt.Println(sig_file, err)
@@ -93,18 +93,18 @@ func main() {
 			panic("Election tag for group " + group + " does not match.")
 		}
 		pks = pks[8+32+8:] // skip {file, election, group} tags
-		if len(pks) % LSAGS_PK_SIZE != 0 {
-			panic("Public keys file for group "+group+" is of wring size")
+		if len(pks)%LSAGS_PK_SIZE != 0 {
+			panic("Public keys file for group " + group + " is of wring size")
 		}
 		n := len(pks) / LSAGS_PK_SIZE
-		for i := 0; i<n; i++ {
+		for i := 0; i < n; i++ {
 			var pk_ [LSAGS_PK_SIZE]byte
-			copy(pk_[:], pks[i*LSAGS_PK_SIZE:(i+1)*LSAGS_PK_SIZE]) 
-			if (valid_pks[pk_]) {
+			copy(pk_[:], pks[i*LSAGS_PK_SIZE:(i+1)*LSAGS_PK_SIZE])
+			if valid_pks[pk_] {
 				delete(valid_pks, pk_)
 			} else {
 				fmt.Println(i, pk_)
-				panic("Public key "+fmt.Sprint(i)+" in group "+group+" is unbacked!")
+				panic("Public key " + fmt.Sprint(i) + " in group " + group + " is unbacked!")
 			}
 		}
 

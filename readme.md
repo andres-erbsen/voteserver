@@ -90,7 +90,7 @@ client->server | Registration request (No header at all)
 `uint16`        |`sig_size`
 `[sig_size]byte`|ID card signature on the LSAGS public key
 `[29]byte`      | LSAGS public key
-`[]byte`        | Everything else is opque cargo
+`[]byte`        | Everything else is opaque cargo
 
  `groups`, `GROUPSLL` | Groups' members lists (No group number in header)
 ----------------|-----

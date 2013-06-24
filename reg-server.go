@@ -18,6 +18,15 @@ import (
 	"path/filepath"
 )
 
+func Exists(name string) bool {
+	if _, err := os.Stat(name); err != nil {
+		if os.IsNotExist(err) {
+			return false
+		}
+	}
+	return true
+}
+
 const LSAGS_PK_SIZE = 29
 
 var server_sk *rsa.PrivateKey
@@ -83,6 +92,9 @@ func regHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	if Exists(voter_file+".sig") && Exists(voter_file+".pk") && Exists(voter_file+".cargo") {
+		return
+	}
 	if ioutil.WriteFile(voter_file+".sig", sig, os.FileMode(0600)) != nil {
 		return
 	}

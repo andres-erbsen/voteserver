@@ -48,6 +48,7 @@ func sign(filepath string) {
 	}
 }
 
+// FIXME: seed the random number generator
 func groups_of_no_more_than(voters []uint64, gs_max int) [][]uint64 {
 	n := len(voters)
 	n_groups := (n + gs_max - 1) / gs_max
